@@ -82,8 +82,8 @@
 //     {
 //         for (int j = 0; j < array.GetLength(1); j++)
 //         {
-//             if (x == i && y == j);
-
+//             if (x == i && y == j); 
+//             else Console.WriteLine("Такого элемнта нет");
 //         }
 
 //     }
@@ -120,7 +120,7 @@ void FillArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(0, 100);
+            array[i, j] = new Random().Next(0, 10);
         }
         Console.WriteLine();
     }
@@ -138,25 +138,29 @@ void PrintArray(int[,] array)
     }
 }
 
-
-
-double Srarif(int[,] array)
-{
-    int sum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            //if (i == j) sum = (sum + array[i, j])/n;
-        }
-    }
-    return sum;
-}
-
 FillArray(array);
 PrintArray(array);
+
+float[] SredneeArif = new float[n];   // массив [0,1,2,3,4] если 5 столбцов
+int sum = 0;
+for (int i = 0; i < array.GetLength(0); i++)  // строки
+{
+
+    for (int j = 0; j < array.GetLength(1); j++) // столбцы
+    {
+        sum = (sum + array[j, i]);
+        SredneeArif[i] = sum / m;
+        //System.Console.WriteLine(sum);
+    }
+
+    System.Console.WriteLine(sum);
+    //System.Console.WriteLine($"Среднее арифметическое столбца = {SredneeArif[i]}");
+}
+
+
+
 System.Console.WriteLine();
-System.Console.WriteLine($"Среднее арифметическое каждого столбца = {Srarif(array)}");
+// System.Console.WriteLine($"Среднее арифметическое каждого столбца = {SredneeArif[n-1]}");
 
 
 

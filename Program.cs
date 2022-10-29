@@ -40,77 +40,15 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
-// Console.Clear();
-// Console.Write("Введите количество строк массива: ");
-// int m = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите количество столбцов массива: ");
-// int n = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите номер строки искомого элемента: ");
-// int x = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите номер столбца искомого элемента: ");
-// int y = Convert.ToInt32(Console.ReadLine());
-
-// int[,] array = new int[m, n];
-
-// void FillArray(int[,] array)
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             array[i, j] = new Random().Next(0, 100);
-//         }
-//         Console.WriteLine();
-//     }
-// }
-
-// void PrintArray(int[,] array)
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             Console.Write(array[i, j] + " ");
-//         }
-//         Console.WriteLine();
-//     }
-// }
-
-// int Metod(int[,] array)
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             if (x == i && y == j); 
-//             else Console.WriteLine("Такого элемнта нет");
-//         }
-
-//     }
-//     return array[x-1, y-1];
-// }
-
-// FillArray(array);
-// PrintArray(array);
-// System.Console.WriteLine();
-// System.Console.WriteLine(Metod(array));
-
-
-
-// Задача 52. Задайте двумерный массив из целых чисел.
-//  Найдите среднее арифметическое элементов в каждом столбце.
-
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-
 Console.Clear();
 Console.Write("Введите количество строк массива: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов массива: ");
 int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите номер строки искомого элемента: ");
+int x = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите номер столбца искомого элемента: ");
+int y = Convert.ToInt32(Console.ReadLine());
 
 int[,] array = new int[m, n];
 
@@ -120,7 +58,7 @@ void FillArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(0, 10);
+            array[i, j] = new Random().Next(0, 100);
         }
         Console.WriteLine();
     }
@@ -138,29 +76,93 @@ void PrintArray(int[,] array)
     }
 }
 
-FillArray(array);
-PrintArray(array);
-
-float[] SredneeArif = new float[n];   // массив [0,1,2,3,4] если 5 столбцов
-int sum = 0;
-for (int i = 0; i < array.GetLength(0); i++)  // строки
+int Metod(int[,] array)
 {
-
-    for (int j = 0; j < array.GetLength(1); j++) // столбцы
+    if (x > array.GetLength(0) && y > array.GetLength(1)) System.Console.WriteLine("Искомый элемент за пределами массива");
+    else
     {
-        sum = (sum + array[j, i]);
-        SredneeArif[i] = sum / m;
-        //System.Console.WriteLine(sum);
-    }
 
-    System.Console.WriteLine(sum);
-    //System.Console.WriteLine($"Среднее арифметическое столбца = {SredneeArif[i]}");
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                if (x == i && y == j) ;
+            }
+
+        }
+
+
+    }
+    return array[x - 1, y - 1];
+
 }
 
-
-
+FillArray(array);
+PrintArray(array);
 System.Console.WriteLine();
-// System.Console.WriteLine($"Среднее арифметическое каждого столбца = {SredneeArif[n-1]}");
+System.Console.WriteLine($"Искомый элемент {Metod(array)}");
+
+
+
+// Задача 52. Задайте двумерный массив из целых чисел.
+//  Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+// Console.Clear();
+// Console.Write("Введите количество строк массива: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов массива: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+
+// int[,] array = new int[m, n];
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(0, 10);
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// FillArray(array);
+// PrintArray(array);
+
+// double[] SredneeArif = new double[n];   // массив [0,1,2,3,4] если 5 столбцов
+
+// for (int i = 0; i < array.GetLength(1); i++)  // столбцы, начинаем с [j,0],[j,1],[j,2]
+// {
+//     int sum = 0;                                // обнуляем счетчик суммы
+//     for (int j = 0; j < array.GetLength(0); j++) // строки, начинаем с [0,0],[0,1],[0,2]
+//     {
+//         sum = (sum + array[j, i]);
+//         SredneeArif[i] = sum / m;
+//     }
+
+//     System.Console.WriteLine($"Среднее арифметическое столбца = {sum}/{m} это {SredneeArif[i]}"); // НУ ПОЧЕМУУУУУУ не double??
+// }
+// System.Console.WriteLine();
+
 
 
 
